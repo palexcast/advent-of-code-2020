@@ -15,7 +15,27 @@ const getInputFormatted = (file) => {
     return formatted;
 };
 
+const unique = (...arr) => {
+    if (!arr || arr.length === 0 || (arr.length === 1 && !arr[0])) {
+        return;
+    }
+    const content = [].concat(...arr);
+    return Array.from(new Set(content));
+}
+
+const intersect = (...arr) => {
+    if (!arr || arr.length === 0 || (arr.length === 1 && !arr[0])) {
+        return;
+    }
+    if(arr.length === 1){
+        return arr[0];
+    }
+    return arr[0].filter(val => arr.every(innerArr => innerArr.indexOf(val) >= 0))
+}
+
 module.exports = {
     getInput,
-    getInputFormatted
+    getInputFormatted,
+    unique,
+    intersect
 }
