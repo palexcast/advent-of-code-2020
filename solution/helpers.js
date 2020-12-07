@@ -33,9 +33,12 @@ const intersect = (...arr) => {
     return arr[0].filter(val => arr.every(innerArr => innerArr.indexOf(val) >= 0))
 }
 
+const copy = (obj) => JSON.parse(JSON.stringify(obj));
+
 module.exports = {
     getInput,
     getInputFormatted,
     unique,
-    intersect
+    intersect,
+    copy
 }
